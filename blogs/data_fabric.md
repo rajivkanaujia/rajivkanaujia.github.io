@@ -1,4 +1,5 @@
 # Data Fabric
+*Sep, 2020*
 ## Data Fabric Architecture
 *Defining a data fabric architecture and comparing/contrasting it related approaches*
 - Traditionally, data lived in a Database Management System (DBMS) or in an unstructured format (e.g. shared-drive, other filesystems). As time passed, we now have both structured and unstructured data of various formats, located at various end-points.
