@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Add a gray background color with some padding */
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f1f1f1;
+      }
+
+      /* Header/Blog Title */
+      .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        /* background: white; */
+        background-color: rgba(0, 0, 0, .5);
+      }
+
+      /* Create two unequal columns that floats next to each other */
+      /* Left column */
+      .leftcolumn {
+        float: left;
+        width: 75%;
+      }
+
+      /* Right column */
+      .rightcolumn {
+        float: left;
+        width: 25%;
+        padding-left: 20px;
+      }
+
+      /* Fake image */
+      .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+      }
+
+      /* Add a card effect for articles */
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        margin-top: 20px;
+      }
+
+      /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 800px) {
+
+        .leftcolumn,
+        .rightcolumn {
+          width: 100%;
+          padding: 0;
+        }
+      }
+
+      .panel-wrapper {
+        position: relative;
+      }
+
+      .btn {
+        color: #fff;
+        background: #000;
+        border-radius: 1.5em;
+        left: 30%;
+        padding: 1em;
+        text-decoration: none;
+        width: 40%;
+      }
+
+      .show,
+      .hide {
+        position: absolute;
+        bottom: -1em;
+        z-index: 100;
+        text-align: center;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .show:target {
+        display: none;
+      }
+
+      .show:target~.hide {
+        display: block;
+      }
+
+      .show:target~.panel {
+        max-height: 2000px;
+      }
+
+      .show:target~.fade {
+        margin-top: 0;
+      }
+
+      .panel {
+        position: relative;
+        margin: 2em auto;
+        width: 95%;
+        max-height: 100px;
+        overflow: hidden;
+        transition: max-height .5s ease;
+      }
+
+      .fade {
+        background: linear-gradient(to bottom, rgba(rgb(100, 100, 100), 0) 0%, rgba(rgb(100, 100, 100), 1) 75%);
+        height: 100px;
+        margin-top: -100px;
+        position: relative;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Blogs and Articles</h2>
+    </div>
+    <p style="font-size:80%;">Here are various blogs and articles that I
+      wrote or have been involved with.</p>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>Data Fabric</h2>
+          <h5><i>Sep 2020</i></h5>
+          <!--
+              <div class="fakeimg" style="height:200px;"> Image </div>
+              -->
+          <div class="fakeimg" style="height:200px;"> <img src="images/blog_data_fabric_001.png" alt="" style="width:
+                  1500px; height: 200px; max-height: 100%; max-width: 100%;">
+          </div>
+          <div class="panel-wrapper">
+            <a href="#show" class="show btn" id="show">Show Full Article</a>
+            <a href="#hide" class="hide btn" id="hide">Hide Full Article</a>
+            <div class="panel">
+              <h4>
+                Defining a data fabric architecture and comparing/contrasting it related
+                approaches.</h4>
+              <p>Traditionally, data lived in a Database
+                Management System (DBMS) or in an unstructured format
+                (e.g. shared-drive, other filesystems). As time passed, we
+                now have both structured and unstructured data of various
+                formats, located at various end-points. </p>
+              <p>Emerging from Data
+                Management, Big Data, and associated Analytics, Data
+                Fabric is a single environment allowing access to the data
+                (you need) via a common toolset/framework irrespective of
+                data location, residency, or format, while providing means
+                to analyze and transform data as it moves between
+                underlying system/data-layer. For an end-user, it is a
+                single system that unifies the accessibility of data from
+                various services, technologies into one platform. Data
+                Fabric Architecture uses the fundamentals of software
+                design and architecture to achieve such an objective. </p>
+              <p>Personally, it feels like it's a 1990s grid computing
+                focused on distributed ETL involving a huge amount of
+                heterogeneous data and real-time analytics. </p>
+              <p>Alternative
+                approaches to Data Fabric rely on various data-warehousing
+                technologies (pre-processed data for a particular purpose,
+                gathered and flattened for analysis/reporting while
+                providing query languages on top of it). Another
+                alternative is Data Lakes (all data at one place,
+                transformed as needed, used for analytics, various
+                reporting, machine learning, etc.) </p>
+              <h4>Pros and cons
+                enterprises may find when implementing a data fabric
+                architecture </h4>
+              <p>The biggest advantage of having such a
+                solution is the elimination of silos and improvement of
+                the company's operations (due to data-driven decisions).
+                Gathering data is easy and cheap these days. Also, the
+                data is growing at an exponential pace. </p>
+              <p>There are many
+                advantages of having a robust Data Fabric implementation. </p>
+              <ul>
+                <li>By creating a unified data environment, you can improve
+                  collaboration between teams significantly. This is
+                  achieved by eliminating data silos. </li>
+                <li>The side-effect of
+                  such a process is reduced risk and cost, while
+                  concurrently achieving scalability as part of designing
+                  for growth. </li>
+                <li><b><i>Legacy Analytics:</i></b> With the ability to have
+                  access to the data irrespective of formats or locations
+                  via centralized access control and APIs, the data can be
+                  mined for the right information, hence exposing its use in
+                  Analytics. </li>
+                <li><b><i>Edge Analytics:</i></b> With the right architecture, as
+                  the streams of data are ingested, the proper alerting and
+                  edge analytics can be performed. </li>
+                <li>Interestingly, both the
+                  Legacy and Edge Analytics can be performed every time the
+                  data moves between the various endpoints in the mesh. </li>
+              </ul>
+              <p>Data
+                quality and associated governance continue to be the
+                biggest challenge to Data Fabric. The next big challenge
+                is the associate infrastructure (availability and
+                durability) </p>
+              <ul>
+                <li>Getting a functional Data Fabric is
+                  challenging as it involves exposing data endpoints that
+                  can talk (connect) to each other while complying with
+                  security, transformation, analytics, and various
+                  data-governance rules. Wrongly interpreted governance and
+                  wrongly implemented data transformation will result in
+                  wrong decisions (wrong data for data-driven decisions). </li>
+              </ul>
+              <p>Success can be achieved if the Data Fabric approach is
+                well thought through and the initiative is well funded. </p>
+              <h4>Top use cases for data fabrics make the most sense and how
+                do these work in practice? </h4>
+              <p>
+                At times, some of the data fabric implementations have been very scary as they have intruded extensively in
+                eroding the privacy of citizens of many countries. In a non-controversial implementation, they help in
+                data-driven decisions.
+              </p>
+              <ul>
+                <li>Data
+                  Fabric can be used at places that have heterogeneous
+                  disperse systems and data. </li>
+                <li>Take a look at social networking and the way the user's profile/activity/data is shared among
+                  heterogeneous applications. Your location,
+                  friends, groups you belong to, emails, shopping
+                  preferences, etc. although come from various data
+                  endpoints. The right implementation of Data Fabric will
+                  weave them together to provide various
+                  business/social/law-enforcement values. </li>
+                <li>Another example is
+                  trading/managing future energy needs via interplanetary
+                  energy grids. Energy generated in various ways can be
+                  priced based on "global" demands. It can be sold/traded,
+                  distributed/managed based on the demands of regions while
+                  interconnecting with the production and distribution of
+                  raw materials used for generating energy. </li>
+                <li>Below is another
+                  example of a highly secure SaaS organization operating in
+                  Hybrid Cloud</li>
+                <ul>
+                  <li>The security team would like to know when
+                    an individual enters, exits the building, and all
+                    activities performed by the individual. One can easily
+                    find out when an employee scans their access card on the
+                    main door and other secured locations within the premises
+                    (Physical Security). Once an employee enters a secured
+                    location, the employee logs into an authorized computer
+                    system. Login time, the number of unsuccessful login
+                    attempts are tracked. There is a lag between entering a
+                    secured location and successful login. The details of this
+                    lag-time are kept as time-series and an alert can be
+                    generated if the predictive lag of an individual employee
+                    exceeds the threshold (predictive analysis, simple AI for
+                    predictive behavior). Hence this required both the "data"
+                    points to be connected and have a real-time analysis
+                    performed within the fabric. </li>
+                  <li>Activities based on the
+                    role are another area of interest. </li>
+                  <ul>
+                    <li>The individual
+                      operates in a hybrid cloud, there are activities performed
+                      in provisioning the system, accessing the system, and
+                      operating on the same. If this was AWS, there would be a
+                      lot of cloud trail data generated, including the data
+                      generated while operating one or more on-prem ecosystems.
+                      Activities of access and others are logged. Logs from the
+                      application used during that time are also generated. Do
+                      note that all these are heterogeneous systems. To
+                      ensure a successful activity, this system must
+                      authenticate and authorize all activities. In cases like
+                      API calls, these authentication and authorization are done
+                      every time. </li>
+                    <li>The individual has a Customer
+                      Service/Support role. This person has access to customer
+                      data and can make changes to it based on customer
+                      requests. These activity logs are generated in various
+                      systems. These activities may not be predictive as on some
+                      days, there are a lot of customer issues. However,
+                      accessing authorized customer data and making changes on
+                      their behalf are logged for compliance. One is also
+                      tracking the number of support tickets created and
+                      resolved, including the satisfaction (NPS) score around
+                      them. </li>
+                    <li>Next add more persona (i) Salesperson responding
+                      to an RFI/RFQ after the initial request by the prospect
+                      (what is the duration of activity) and associated success
+                      of the sale, including the revenue amount. (ii) The
+                      accounting team making payment after "n" days of receiving
+                      the invoice, and a trend of payments received and payment
+                      made. </li>
+                    <li>Now, with data fabric, I would like to weave
+                      them together. With the right algorithm in place, an
+                      organization will have real-time data of various sales
+                      activities, potential revenue realization, customer
+                      on-boarding time, and customer satisfaction, including
+                      associated alerts/escalation that are data-driven and
+                      measured.
+                    </li>
+                  </ul>
+                </ul>
+              </ul>
+              <p><br></p>
+            </div>
+            <!-- end panel -->
+          </div>
+          <!-- end panel-wrapper -->
+        </div>
+
+
+        <div class="card">
+          <h2>TITLE HEADING</h2>
+          <h5>Title description, Sep 2, 2017</h5>
+          <div class="fakeimg" style="height:200px;">Image</div>
+          <p>Some text..</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est
+            laborum consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+      </div>
+      <div class="rightcolumn">
+        <div class="card">
+          <h2>About Me</h2>
+          <div class="fakeimg" style="height:100px;">Image</div>
+          <p>Some text about me in culpa qui officia deserunt mollit
+            anim..</p>
+        </div>
+        <div class="card">
+          <h3>Popular Post</h3>
+          <div class="fakeimg">Image</div>
+          <br>
+          <div class="fakeimg">Image</div>
+          <br>
+          <div class="fakeimg">Image</div>
+        </div>
+        <div class="card">
+          <h3>Follow Me</h3>
+          <p>Some text..</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+
+  </body>
+</html>
