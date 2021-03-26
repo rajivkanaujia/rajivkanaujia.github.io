@@ -1,2 +1,2 @@
 # rajivkanaujia.github.io
-TBD
+Visit https://rajivkanaujia.github.io 🙂
