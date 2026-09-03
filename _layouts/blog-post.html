@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+<nav class="blog-nav" aria-label="Site navigation">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <a href="{{ '/blog/' | relative_url }}">Blog</a>
+</nav>
+<article class="blog-post">
+  <div class="article-header">
+    {% if page.published == false %}<p class="draft-label">Draft for review</p>{% endif %}
+    <h1>{{ page.title | escape }}</h1>
+    <p class="post-meta">{{ page.author | default: site.title | escape }} · <time datetime="{{ page.date | date_to_xmlschema }}">{% if page.date_display %}{{ page.date_display | escape }}{% else %}{{ page.date | date: '%B %-d, %Y' }}{% endif %}</time></p>
+    {% if page.tags %}<p class="post-tags">{{ page.tags | join: ' · ' | escape }}</p>{% endif %}
+  </div>
+  {{ content }}
+  <div class="blog-footer"><a href="{{ '/blog/' | relative_url }}">← Back to Blog</a></div>
+</article>

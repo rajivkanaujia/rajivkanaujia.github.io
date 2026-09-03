@@ -1,0 +1,21 @@
+---
+layout: default
+title: Blog
+description: "Notes on software, AI, architecture, and building technology businesses."
+permalink: /blog/
+---
+<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+<nav class="blog-nav" aria-label="Site navigation"><a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/blog/' | relative_url }}" aria-current="page">Blog</a></nav>
+<h1>Blog</h1>
+<p>Notes on software, AI, architecture, and building technology businesses.</p>
+{% assign articles = site.pages | where: 'layout', 'blog-post' | sort: 'date' | reverse %}
+{% for article in articles %}
+  {% unless article.published == false %}
+  <article class="post-listing">
+    <h2><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></h2>
+    <p class="post-meta"><time datetime="{{ article.date | date_to_xmlschema }}">{% if article.date_display %}{{ article.date_display | escape }}{% else %}{{ article.date | date: '%B %-d, %Y' }}{% endif %}</time></p>
+    <p>{{ article.description | escape }}</p>
+    <p class="post-tags">{{ article.tags | join: ' · ' | escape }}</p>
+  </article>
+  {% endunless %}
+{% endfor %}

@@ -1,0 +1,32 @@
+.about-details { margin: 1rem 0; border-bottom: 1px solid #555; padding-bottom: .75rem; }
+.about-details summary { cursor: pointer; font-size: 1.3rem; font-weight: 600; color: #f0e7d5; padding: .3rem 0; }
+.about-details summary:focus-visible { outline: 2px solid #ffcc00; outline-offset: 4px; }
+.about-details ul { margin-top: 1rem; }
+.about-details li { margin-bottom: .85rem; }
+
+/* Homepage introduction; blog pages retain their existing theme header. */
+#title { display: none; }
+.profile-intro { display: flex; align-items: center; gap: 28px; margin: 0 0 28px; padding-bottom: 26px; border-bottom: 1px solid #454545; }
+.profile-photo { flex: 0 0 144px; width: 144px; height: 144px; object-fit: cover; border-radius: 50%; border: 3px solid #504d43; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.profile-heading { min-width: 0; }
+.profile-heading h1 { margin: 0 0 7px; font-size: 34px; line-height: 1.15; font-weight: 600; letter-spacing: -.6px; text-align: left; }
+.profile-role { margin: 0 0 3px; font-size: 18px; color: #f0e7d5; }
+.profile-specialties { margin: 0 0 15px; color: #bbb; font-size: 15px; line-height: 1.55; }
+.profile-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; font-size: 14px; }
+.profile-links a { white-space: nowrap; }
+.profile-links .profile-blog { background: #ffcc00; color: #202020; padding: 7px 12px; border-radius: 4px; font-weight: 600; }
+.profile-links .profile-blog:hover { background: #ffe071; }
+.profile-links a:focus-visible { outline: 2px solid #ffcc00; outline-offset: 4px; }
+@media (max-width: 540px) {
+  .profile-intro { gap: 18px; align-items: flex-start; }
+  .profile-photo { flex-basis: 92px; width: 92px; height: 92px; }
+  .profile-heading h1 { font-size: 27px; }
+  .profile-role { font-size: 16px; }
+  .profile-specialties { font-size: 14px; }
+  .profile-links { gap: 10px 14px; }
+}
+@media (max-width: 360px) {
+  .profile-intro { gap: 12px; }
+  .profile-photo { flex-basis: 72px; width: 72px; height: 72px; }
+  .profile-heading h1 { font-size: 24px; }
+}
